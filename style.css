@@ -35,6 +35,10 @@ ul li {
   font-weight: 200;
 }
 
+ul li label, ul li input {
+  cursor: pointer;
+}
+
 button {
   background-color: #8e44ad;
   color: azure;
