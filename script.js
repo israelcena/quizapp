@@ -31,21 +31,48 @@ const quizData = [
     d: '1500',
     correct: 'c'
   },
-  
-];
 
+];
+let currentQuiz = 0;
 /* Options El */
 const questionEl = document.getElementById('question');
 const commentEl = document.getElementById('comment');
-const aOptionEl = document.getElementById('a-option'); 
-const bOptionEl = document.getElementById('b-option'); 
-const cOptionEl = document.getElementById('c-option'); 
-const dOptionEl = document.getElementById('d-option'); 
+const aOptionEl = document.getElementById('a-option');
+const bOptionEl = document.getElementById('b-option');
+const cOptionEl = document.getElementById('c-option');
+const dOptionEl = document.getElementById('d-option');
+commentEl.style.display = 'none'
+const submitBtnEl = document.getElementById('button');
 
-let currentQuestion = 0; 
+function initialQuiz() {
+  const radiusEl = document.querySelectorAll('input')
+  questionEl.innerHTML = 'Bem Vindo Ao Gerador de Quiz !';
+  aOptionEl.innerHTML = '';
+  bOptionEl.innerHTML = 'Clique em iniciar para começar';
+  cOptionEl.innerHTML = '';
+  dOptionEl.innerHTML = '';
+  submitBtnEl.innerHTML = 'Iniciar';
+  radiusEl.forEach(radius => {
+    radius.style.display = 'none'
+  })
+};
 
-loadQuiz();
+initialQuiz();
 
 function loadQuiz() {
-  currentQuestion ++
+  
+  const currentQuizData = quizData[currentQuiz];
+
+  questionEl.innerHTML = currentQuizData.question;
+  aOptionEl.innerHTML = currentQuizData.a;
+  bOptionEl.innerHTML = currentQuizData.b;
+  cOptionEl.innerHTML = currentQuizData.c;
+  dOptionEl.innerHTML = currentQuizData.d;
+
 }
+
+submitBtnEl.addEventListener('click', () => {
+  currentQuiz++;
+  loadQuiz();
+})
+
