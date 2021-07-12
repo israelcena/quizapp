@@ -25,6 +25,12 @@ ul {
   padding: 0;
 }
 
+ul li {
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-weight: 200;
+}
+
 button {
   background-color: #8e44ad;
   color: azure;
