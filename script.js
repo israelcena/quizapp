@@ -79,6 +79,7 @@ function loadQuiz() {
   bOptionEl.innerHTML = currentQuizData.b;
   cOptionEl.innerHTML = currentQuizData.c;
   dOptionEl.innerHTML = currentQuizData.d;
+  submitBtnEl.innerHTML = 'Proxima Pergunta';
 }
 
 submitBtnEl.addEventListener('click', () => {
