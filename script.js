@@ -34,6 +34,14 @@ const quisDate = [
   
 ];
 
+/* Options El */
+const questionEl = document.getElementById('question');
+const commentEl = document.getElementById('comment');
+const aOptionEl = document.getElementById('a-option'); 
+const bOptionEl = document.getElementById('b-option'); 
+const cOptionEl = document.getElementById('c-option'); 
+const dOptionEl = document.getElementById('d-option'); 
+
 let currentQuestion = 0; 
 
 loadQuiz();
