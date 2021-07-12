@@ -37,15 +37,16 @@ let currentQuiz = 0;
 /* Options El */
 const questionEl = document.getElementById('question');
 const commentEl = document.getElementById('comment');
+commentEl.style.display = 'none'
 const aOptionEl = document.getElementById('a-option');
 const bOptionEl = document.getElementById('b-option');
 const cOptionEl = document.getElementById('c-option');
 const dOptionEl = document.getElementById('d-option');
-commentEl.style.display = 'none'
 const submitBtnEl = document.getElementById('button');
+const radiusEl = document.querySelectorAll('input')
 
 function initialQuiz() {
-  const radiusEl = document.querySelectorAll('input')
+  
   questionEl.innerHTML = 'Bem Vindo Ao Gerador de Quiz !';
   aOptionEl.innerHTML = '';
   bOptionEl.innerHTML = 'Clique em iniciar para começar';
@@ -72,6 +73,9 @@ function loadQuiz() {
 }
 
 submitBtnEl.addEventListener('click', () => {
+  radiusEl.forEach(radius => {
+    radius.style.display = 'inline'
+  })
   currentQuiz++;
   loadQuiz();
 })
