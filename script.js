@@ -46,7 +46,6 @@ const submitBtnEl = document.getElementById('button');
 const radiusEl = document.querySelectorAll('input')
 
 function initialQuiz() {
-  
   questionEl.innerHTML = 'Bem Vindo Ao Gerador de Quiz !';
   aOptionEl.innerHTML = '';
   bOptionEl.innerHTML = 'Clique em iniciar para começar';
@@ -57,8 +56,19 @@ function initialQuiz() {
     radius.style.display = 'none'
   })
 };
-
 initialQuiz();
+
+function endQuiz() {
+  questionEl.innerHTML = 'Você Terminou';
+  aOptionEl.innerHTML = '';
+  bOptionEl.innerHTML = 'Em breve entraremos em contato para';
+  cOptionEl.innerHTML = 'disponibilizar seu resultado';
+  dOptionEl.innerHTML = '';
+  submitBtnEl.style.display = 'none';
+  radiusEl.forEach(radius => {
+    radius.style.display = 'none'
+  })
+};
 
 function loadQuiz() {
   
@@ -69,7 +79,6 @@ function loadQuiz() {
   bOptionEl.innerHTML = currentQuizData.b;
   cOptionEl.innerHTML = currentQuizData.c;
   dOptionEl.innerHTML = currentQuizData.d;
-
 }
 
 submitBtnEl.addEventListener('click', () => {
@@ -77,6 +86,6 @@ submitBtnEl.addEventListener('click', () => {
     radius.style.display = 'inline'
   })
   currentQuiz++;
-  loadQuiz();
+  currentQuiz < quizData.length ? loadQuiz() : endQuiz()
 })
 
