@@ -1,4 +1,4 @@
-const quisDate = [
+const quizData = [
   {
     question: 'Quem descobriu o Brasil ?',
     a: 'Cristovão Colombo',
