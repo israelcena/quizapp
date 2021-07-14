@@ -120,7 +120,7 @@ initialQuiz();
 function endQuiz() {
   questionEl.innerHTML = 'Parabéns! Você Terminou!';
   aOptionEl.innerHTML = `Você teve: <h2>${quizData.length} Questões</h2>`;
-  bOptionEl.innerHTML = `Obteve <h2>${score} Acertos</h2>`;
+  bOptionEl.innerHTML = `E obteve: <h2>${score} Acertos</h2>`;
   cOptionEl.innerHTML = '';
   dOptionEl.innerHTML = '';
   submitBtnEl.style.display = 'none';
@@ -131,7 +131,7 @@ function endQuiz() {
 
 function loadQuiz() {
   deselectAnswers();
-  
+
   const currentQuizData = quizData[currentQuiz];
 
   questionEl.innerHTML = currentQuizData.question;
