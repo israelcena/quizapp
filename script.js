@@ -146,6 +146,12 @@ function getSelect() {
   return answer
 };
 
+function deselectAnswers() {
+    radiusEl.forEach(radio => {
+      radio.checked = false;
+    })
+};
+
 submitBtnEl.addEventListener('click', () => {
   radiusEl.forEach(radius => {
     radius.style.display = 'inline'
