@@ -118,12 +118,16 @@ function initialQuiz() {
 initialQuiz();
 
 function endQuiz() {
+  submitBtnEl.addEventListener('click', () => {
+    location.reload();
+  });
+
   questionEl.innerHTML = 'Parabéns! Você Terminou!';
   aOptionEl.innerHTML = `Você teve: <h2>${quizData.length} Questões</h2>`;
   bOptionEl.innerHTML = `E obteve: <h2>${score} Acertos</h2>`;
   cOptionEl.innerHTML = '';
   dOptionEl.innerHTML = '';
-  submitBtnEl.style.display = 'none';
+  submitBtnEl.innerHTML = 'Tente Novamente';
   radiusEl.forEach(radius => {
     radius.style.display = 'none';
   })
