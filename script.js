@@ -8,7 +8,7 @@ const quizData = [
     correct: 'd'
   },
   {
-    question: 'Quem Libertou os Escravos ?',
+    question: 'Quem Libertou os Escravos assinando a Lei Áurea?',
     a: 'Getúlio Vargas',
     b: 'Jair M. Bolsonaro',
     c: 'Princesa Isabel',
