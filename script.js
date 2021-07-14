@@ -156,6 +156,15 @@ submitBtnEl.addEventListener('click', () => {
   radiusEl.forEach(radius => {
     radius.style.display = 'inline'
   })
+
+  answer = getSelect();
+
+  if (answer) {
+    if (answer === quizData[currentQuiz].correct){
+      score++    
+    }
+  }
+
   currentQuiz === undefined ? currentQuiz = 0 : currentQuiz++;
   currentQuiz < quizData.length ? loadQuiz() : endQuiz()
 })
