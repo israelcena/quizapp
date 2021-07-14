@@ -88,7 +88,11 @@ const quizData = [
     correct: 'a'
   },
 ];
+/* Global Vars */
 let currentQuiz = undefined;
+let answer = undefined;
+let score = 0;
+
 /* Options El */
 const questionEl = document.getElementById('question');
 const commentEl = document.getElementById('comment');
@@ -98,7 +102,7 @@ const bOptionEl = document.getElementById('b-option');
 const cOptionEl = document.getElementById('c-option');
 const dOptionEl = document.getElementById('d-option');
 const submitBtnEl = document.getElementById('button');
-const radiusEl = document.querySelectorAll('input')
+const radiusEl = document.querySelectorAll('input');
 
 function initialQuiz() {
   questionEl.innerHTML = 'Bem Vindo Ao Quiz App!';
@@ -108,24 +112,25 @@ function initialQuiz() {
   dOptionEl.innerHTML = '';
   submitBtnEl.innerHTML = 'Iniciar';
   radiusEl.forEach(radius => {
-    radius.style.display = 'none'
-  })
+    radius.style.display = 'none';
+  });
 };
 initialQuiz();
 
 function endQuiz() {
-  questionEl.innerHTML = 'Você Terminou';
-  aOptionEl.innerHTML = '';
-  bOptionEl.innerHTML = 'Em breve entraremos em contato para';
-  cOptionEl.innerHTML = 'disponibilizar seu resultado';
+  questionEl.innerHTML = 'Parabéns! Você Terminou!';
+  aOptionEl.innerHTML = `Você teve: <h2>${quizData.length} Questões</h2>`;
+  bOptionEl.innerHTML = `Obteve <h2>${score} Acertos</h2>`;
+  cOptionEl.innerHTML = '';
   dOptionEl.innerHTML = '';
   submitBtnEl.style.display = 'none';
   radiusEl.forEach(radius => {
-    radius.style.display = 'none'
+    radius.style.display = 'none';
   })
 };
 
 function loadQuiz() {
+  deselectAnswers();
   
   const currentQuizData = quizData[currentQuiz];
 
@@ -154,18 +159,14 @@ function deselectAnswers() {
 
 submitBtnEl.addEventListener('click', () => {
   radiusEl.forEach(radius => {
-    radius.style.display = 'inline'
+    radius.style.display = 'inline';
   })
-
   answer = getSelect();
-
   if (answer) {
     if (answer === quizData[currentQuiz].correct){
       score++    
     }
   }
-
   currentQuiz === undefined ? currentQuiz = 0 : currentQuiz++;
-  currentQuiz < quizData.length ? loadQuiz() : endQuiz()
-})
-
+  currentQuiz < quizData.length ? loadQuiz() : endQuiz();
+});
