@@ -137,6 +137,15 @@ function loadQuiz() {
   submitBtnEl.innerHTML = 'Próxima Pergunta';
 }
 
+function getSelect() {
+  radiusEl.forEach((item) => {
+    if(item.checked) {
+      answer = item.id;
+    }
+  })
+  return answer
+};
+
 submitBtnEl.addEventListener('click', () => {
   radiusEl.forEach(radius => {
     radius.style.display = 'inline'
