@@ -86,7 +86,7 @@ submitBtnEl.addEventListener('click', () => {
   radiusEl.forEach(radius => {
     radius.style.display = 'inline'
   })
-  currentQuiz++;
+  currentQuiz === undefined ? currentQuiz = 0 : currentQuiz++;
   currentQuiz < quizData.length ? loadQuiz() : endQuiz()
 })
 
