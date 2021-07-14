@@ -135,7 +135,6 @@ function endQuiz() {
 
 function loadQuiz() {
   deselectAnswers();
-
   const currentQuizData = quizData[currentQuiz];
 
   questionEl.innerHTML = currentQuizData.question;
@@ -148,17 +147,17 @@ function loadQuiz() {
 
 function getSelect() {
   radiusEl.forEach((item) => {
-    if(item.checked) {
+    if (item.checked) {
       answer = item.id;
     }
   })
-  return answer
+  return answer;
 };
 
 function deselectAnswers() {
-    radiusEl.forEach(radio => {
-      radio.checked = false;
-    })
+  radiusEl.forEach(radio => {
+    radio.checked = false;
+  })
 };
 
 submitBtnEl.addEventListener('click', () => {
@@ -167,8 +166,8 @@ submitBtnEl.addEventListener('click', () => {
   })
   answer = getSelect();
   if (answer) {
-    if (answer === quizData[currentQuiz].correct){
-      score++    
+    if (answer === quizData[currentQuiz].correct) {
+      score++
     }
   }
   currentQuiz === undefined ? currentQuiz = 0 : currentQuiz++;
